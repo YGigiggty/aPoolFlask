@@ -1,0 +1,81 @@
+.mainBody{
+    background-color: #262932;
+    width: 100%;
+    height: 4000px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.remenberBox{
+    background-color: #191c23;
+    /* background-color: red; */
+    width: 780px;
+    height: 3500px;
+    position: absolute;
+    top: 600px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px 5px rgb(255, 255, 255);
+}
+.vidoBox{
+    width: 1000px;
+    height: 350px;
+    position: relative;
+    box-shadow: 0px 0px 20px 5px black;
+}
+.vidoBox img{
+    min-width: 100%;
+    height: 350px;
+}
+.onImgbox{
+    width: 100%;
+    height: 350px;
+    position:absolute;
+    transition: background-color 0.7s;
+}
+.vidoBox:hover .onImgbox{
+    background-color:rgba(26, 11, 11, 0.3);
+}
+a{
+    text-decoration: none;
+}
+.OlistHistory{
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 35px;
+}
+.OlistHistory img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.HistoryTitle{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 40px;
+    color: #fd7e22;
+    font-family:微软雅黑;
+}
+.SynopsisBox{
+    width: 750px;
+    height: 93px;
+    position: absolute;
+    border-radius: 5px;
+    top: 227px;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 30px;
+    background-color: rgba(193, 194, 196, 0.2);
+    font-size: 1.1rem;
+    color:white;
+    transition: color 1s;
+}
+.SynopsisBox:hover{
+    color: #fd7e22;
+}

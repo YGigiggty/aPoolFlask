@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ZHCN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confirm your account</title>
+    <style>
+        .click_a{
+            text-decoration: underline;
+        }
+        .tip{
+            font-size =10px;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>你好！尊敬的用户。</h1>
+    <h2>您的账户还未经过确认！</h2>
+    <h3>在您完成账户确认前都仅可以观看该页面。请检查您的邮箱，邮箱内的信件中含有确认账户的链接</h3>
+    <p class="tip">
+        {% for message in get_flashed_messages() %}
+            {{message}}
+        {% endfor %}
+    </p>
+    是否还需要再发送邮件？<a class="click_a" href={{url_for("user.reconfirmed")}}>重复发送</a>
+    <a href={{url_for("user.user_out")}}>登出</a>
+</body>
+</html>

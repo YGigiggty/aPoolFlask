@@ -1,0 +1,4 @@
+<p>亲爱的{{user.user_name}}用户</p>
+<p>欢迎您的到来！</p>
+<p>请确认您的账户<a href={{url_for("user.user_confirm",token=token,_external=true)}}>点击此处</a></p>
+<p>点击后，请在您的邮件中寻找链接：{{url_for("user.user_confirm",token =token,_external=true)}}</p>

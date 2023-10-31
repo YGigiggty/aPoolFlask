@@ -1,0 +1,64 @@
+{% extends "navigation.html" %}
+
+{% block title %}
+    {{user.user_name}}的发布
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="../../static/CSS/article/EditSpace.css">
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+    <div class="ShowBox">
+        <div class="inside">
+            {% for p in posts %}
+                <div class="AuthPost">
+                    <a href={{url_for("postes.AuthPost",id=p.id)}}>文章:{{p.title}}</a>
+                    <div class="tools">
+                        <a title="编辑"><img src="../../static/IMG/Post/edit.png"></a>
+                        <a title="删除" href={{url_for("postes.ListDelete",id=p.id)}}><img src="../../static/IMG/Post/delete.png"></a>
+                    </div>
+                </div>
+            {% endfor %}
+            <ul class="navigate">
+                {% if posts %}
+                <li><a href="
+                    {% if not pagination.has_prev %}
+                        #
+                    {% else %}
+                        {{url_for("postes.MyList",page=pagination.page-1)}}
+                    {% endif %}
+                    ">&laquo;</a></li>
+                {% endif %}
+                        {% for p in pagination.iter_pages(
+                            left_edge=1,
+                            left_current=0,
+                            right_current=0,
+                            right_edge=1
+                        ) %}
+                            {% if p%}
+                                {% if p==pagination.page%}
+                                <li><a class="active" href={{url_for("postes.MyList",page=p)}}>{{p}}</a></li>
+                                {% else %}
+                                    <li><a href={{url_for("postes.MyList",page=p)}}>{{p}}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <li><a>&hellip;</a></li>
+                            {% endif %}
+                        {% endfor %}
+                {% if posts%}
+                <li><a href="
+                    {% if not pagination.has_next %}
+                        #
+                    {% else %}
+                        {{url_for("postes.MyList",page=pagination.page+1)}}
+                    {% endif %}"
+                    >&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,190 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/*导航栏*/
+.navbar{
+    height:72px;
+    background:#6163ee;
+    border-radius: 3px;
+    border-bottom:2px ;
+    width: 100%;
+    border-top: 2px;
+}
+.navbar a{
+    text-decoration: none;
+}
+.navbar_inslice{
+    height: 68px;
+    background-color: rgb(31, 156, 240) !important;
+    width: 100%;
+    margin-top: 2px;
+}
+/*导航栏*/
+
+/*放置盒*/
+.slice_inner{
+    background-color: rgb(250, 244, 244);
+    padding: 0 100px;
+    margin: auto;
+    height: 100px;
+}
+.block_logo{
+    padding: 9px 0;
+    margin: 0;
+    margin-left:100px ;
+    line-height: 1.33em;
+    margin-right: auto;
+    min-height: 40px;
+    width: 246px;
+}
+.flex_div{
+    margin: 0;
+    padding: 0 3.6px;
+    min-height:60px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    justify-content: flex-start;
+    max-width: 70%;
+}
+/*放置盒*/
+
+/*logo*/
+.logo_img{
+    float: left;
+    width: 270px;
+    height: 80px;
+    border: 0;
+}
+/*logo*/
+a{
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+/*搜索框*/
+.search_div{
+    width: 307px;
+    height: 40px;
+    float: left;
+    position: relative;
+}
+.block_button{
+    height: 44px;
+    width: 111px;
+    margin-left: 12px;
+    color: white;
+    text-align: center;
+    line-height: 18px;
+    margin-top: 2px;
+}
+.search_button_div{
+    width: 45px;
+    height: 40px;
+    margin-left: 10px;
+}
+.search_form{
+    width: 284px;
+    height: 40px;
+    outline-width: 2px;
+}
+.search_button{
+    width: 45px;
+    height: 44px;
+    background-color: rgba(60, 154, 243, 0.747);
+    border-width: 1px;
+    text-align: center;
+    line-height: 1.3em; 
+    font-size:15px;
+    border-radius: 10px;
+    color: white;
+    margin-left: 5px;
+    position: absolute;
+    left: 288px;
+}
+.search_button:hover{
+    box-shadow: 0 5px 13px 0 rgb(0,0,0,0.3);
+}
+/*搜索框*/
+
+/*登录按钮*/
+.login_button{
+    height: 44px;
+    width: 111px;
+    background-color:#f07f2e;
+    text-align: center;
+    line-height: 1.3em; 
+    font-size:18px;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border-width: 1px;
+    padding-left: 5px;
+    margin-left: 35px;
+}
+.button_change{
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+.login_button:hover{
+    box-shadow: 0 5px 13px 0 rgb(0,0,0,0.3);
+}
+.login_link{
+    display: block;
+    width: 100px;
+    height: 32px;
+    border-radius:15px ;
+    padding-top: 8px;
+    text-decoration: none;
+    color: white;
+}
+/*登录按钮*/
+
+/**/
+.contribute{
+    width: 80px;
+    height: 42px;
+    background-color: #f07f2e;
+    color: white;
+    margin-left: 10px;
+    border-radius: 15px;
+    text-align: center;
+    transition: background-color 1s;
+    text-decoration: none;
+    min-width: 57px;
+}
+.contribute:hover{
+    background-color: #f7b17e;
+}
+.contribute a{
+    display: block;
+    width: 100%;
+    height: 70%;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding-top: 8px;
+}
+.sliceDinner{
+    background-color: rgb(250, 244, 244);
+    padding: 0 100px;
+    margin: auto;
+    height: 100px;
+    background-image: url("../img/testCloud.jpg");
+}
+.navbarDinslice{
+    height: 68px;
+    background-color: rgb(31, 156, 240) !important;
+    width: 100%;
+}
+.disapper{
+    display: block;
+    height: 38px;
+    width: 160px;
+    left: 30%;
+    position: relative;
+    max-height: 48px;
+    padding-top: 10px ;
+    border-radius:5px ;
+}

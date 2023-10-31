@@ -1,0 +1,470 @@
+/*导航栏内频道*/
+.guide{
+    margin: 0 50px;
+    padding: 0 16px;
+    height: 68px;
+}
+.header_nav{
+    height: 100%;
+    width: 100%;
+
+}
+.header_nav ul li{
+    list-style: none;
+}
+.header_nav_li{
+    padding-top:2px ;
+    height: 68px;
+    width: 30%;
+    text-align: center;
+    line-height: 22px;
+    float: right;
+    margin: 0 50px;
+    font-family: 微软雅黑;
+    font-weight: 600;
+    font-size:20px ;
+    padding-top: 20px;
+    max-height: 48px;
+
+}
+.header_nav_li a{
+    color: white;
+}
+.header_nav_ul{
+    height: 68px;
+    display: flex;
+}
+/*导航栏内频道*/
+a{
+    text-decoration: none;
+}
+.normala{
+    display: block;
+    height: 38px;
+    width: 160px;
+    left: 30%;
+    position: relative;
+    max-height: 48px;
+    padding-top: 10px ;
+    border-radius:5px ;
+}
+.normala li:hover .dropdown-content{
+    height: 100px;
+    opacity: 1;
+    display: block;
+}
+.header_nav_li a:hover{
+    color:black;
+}
+.Invaginationa{
+    display: block;
+    height: 38px;
+    width: 160px;
+    left: 30%;
+    position: relative;
+    max-height: 48px;
+    padding-top: 10px ;
+    border-radius:5px ;
+    background-color: #1a31c8a3;
+    box-shadow: 0 0 5px black inset;
+    color: white;
+}
+.scrollBar{
+    height: 495px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    border-bottom: 3px solid black;
+}
+.scrollBar ul{
+    list-style: none;
+}
+.sequnenceLI{
+    height: 100%;
+}
+.animalLI{
+    height: 100%;
+}
+/*宣传盒*/
+.propagendaBox{
+    background-color: white;
+    width: 1111px;
+    height: 400px;
+    z-index: 2;
+    position: absolute;
+    padding: 40px;
+    top: 60%;
+    left: 50%;
+    border: 1px solid rgb(153, 149, 149);
+    overflow: hidden;
+    margin-left: -598px;
+    margin-top: -150px;
+    padding-top: 10px;
+    background-image: url("../img/nn.png");
+}.propagenda_lineF{
+    width: 100%;
+    height: 70px;
+    color: #2a367e;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.propagenda_lineS{
+    width: 100%;
+    height: 180px;
+    color: #f07f2e;
+}
+.propagenda_lineT{
+    width: 100%;
+    border-top:2px dashed black;
+    height: 58px;
+    padding-top:10px;
+
+}
+.propagenda_lineT h2{
+    color: #2a357e;
+    width: 150px;
+    float: left;
+}
+.propagenda_lineT ul{
+    height: 28px;
+    width: 150px;
+    display: block;
+    float: left;
+}
+/*宣传盒*/
+
+/*轮播图*/
+.ANimalimg{
+    max-width: 100%;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+}
+.number{
+    position: absolute;
+    right:10px;
+    bottom:10px;
+    top: 5px;
+    height: 150px;
+}
+.number li{ width:20px;
+    height:20px;
+    border-radius:50%;
+    text-align:center;
+    line-height:20px;
+    margin:5px;
+    background:white
+}
+.number li:hover{
+    color:white;
+    background:rgb(68, 67, 67);
+}
+.scrollBar ul li.active{ background:rgb(167, 163, 162);}
+.animalkown{
+    width: 1100px;
+    height: 200px;
+    margin-top:33px ;
+    padding: 50px;
+    padding-top: 0;
+    position: relative;
+
+}
+.animalkown li{
+    list-style: none;
+}
+.guideUL li{
+    float: left;
+    margin-right: 17.5px;
+}
+.guideUL{
+    height: 100%;
+    width: 100%;
+
+}
+.guideLI{
+    width: 355px;
+    height: 100%;
+}
+.guideUL li:last-child{
+    margin-right: 0;
+}
+/*轮播图*/
+
+/*导航图 */
+.guideIMG{
+    max-width: 335px;
+    min-width: 355px;
+    height: 100%;
+    border-radius: 15px;
+}
+.other{
+    height: 50px;
+    width: 100%;
+    color: #2a367f;
+}
+.longlist{
+    background-color: rgb(251, 246, 241);
+    height: 500px;
+    width: 100%;
+    padding-top: 270px;
+    display: flex;
+    justify-content: center;
+}
+/*导航图 */
+
+.animala{
+    width: 355px;
+    height: 200px;
+    border-radius: 15px;
+    display: block;
+    border: solid 1px #e07f0a;
+}
+
+/*要闻栏*/
+.lastbox{
+    background-color: rgb(240, 238, 238);
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+}
+.newsbox{
+    width: 1259px;
+    height: 830px;
+    position: relative;
+    padding: 0 20px;
+    background-color: rgb(243, 241, 241);
+}
+.morenew{
+    width: 100%;
+    height: 100px;
+    color: black;
+}
+.morenew a{
+    text-decoration: none;
+}
+.morenew a:hover{
+    color: #f07f2e;
+}
+.Firstnew{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.newsbox img{
+    height: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    width: 400px;
+}
+.FirstnewimgBOX{
+    width: 400px;
+    height: 200px;
+    border-radius: 5px;
+    border: solid 1px #e07f0a;
+}
+.Firstnew_in_box{
+    height: 200px;
+    width: 859px;
+}
+.Firstnew_in_box a{
+    color: black;
+    text-decoration: underline;
+}
+.Firstnew_in_box h3{
+    font-size: 24px;
+}
+.Firstnew_in_box a:hover{
+    color: #f07f2e;
+}
+.space{
+    width: 100%;
+    height: 20px;
+}
+.Firstnew_in_box p{
+    font-size: 20px;
+}
+.ospace{
+    width: 100%;
+    height: 30px;
+}
+/*要闻栏*/
+
+/* 下拉栏*/
+.dropdown-contentFirst{
+    position: absolute;
+    background-color: #6163ee;
+    width: 160px;
+    height: 0px;
+    left: 45%;
+    opacity: 0;
+    z-index: 20;
+    transition: height 0.5s,opacity 1.5s;
+    border: 1px solid rgb(134, 134, 134);
+    border-top:0 ;
+}
+.header_nav_li a:hover +.dropdown-contentFirst,.dropdown-contentFirst:hover{
+    height: 140px;
+    opacity: 1;
+}
+.dropdown-contentSecond{
+    position: absolute;
+    background-color: #6163ee;;
+    width: 160px;
+    height: 0px;
+    left: 76%;
+    opacity: 0;
+    z-index: 20;
+    transition: height 0.5s,opacity 1.5s;
+    border: 1px solid rgb(134, 134, 134);
+    border-top:0 ;
+}
+.header_nav_li a:hover +.dropdown-contentSecond,.dropdown-contentSecond:hover{
+    height: 140px;
+    opacity: 1;
+}
+.dropdownLi{
+    background-color:#b952e8;
+    height: 38px;
+    width: 140px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 12px;
+    margin-top: 8px;
+    color:black;
+    border-radius: 5px;
+}
+.dropdownLi a:hover{
+    color: #f07f2e;
+}
+
+/* 下拉栏*/
+.Space_invaginationa{
+    display: block;
+    height: 38px;
+    width: 160px;
+    left: 30%;
+    position: relative;
+    max-height: 48px;
+    padding-top: 10px ;
+    border-radius:5px ;
+    color: black;
+}
+/*头像*/
+.head_sculptureBox{
+    float: left;
+    width: 55px;
+    height: 55px;
+    border-radius:50px ;
+    margin-left: 50px;
+    box-shadow: 0 0 0 rgb(131, 129, 129);
+    transition: box-shadow 1s;
+}
+.head_sculptureBox:hover{
+    box-shadow: -2px 4px 7px rgb(131, 129, 129);
+}
+.toSpace_A{
+    display: block;
+    width: 55px;
+    height: 55px;
+    border-radius:50px ;
+}
+/*用户中心*/
+.next{
+    width: 100%;
+    height: 900px;
+    background-color:#2a367e;
+}
+.spaceBox{
+    transform: translate(-50%,-50%);
+    opacity:0.73;
+    left:50%;
+    position: relative;
+    top: 36%;
+    border: solid 1px rgb(18, 91, 109);
+    width: 650px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
+    overflow: hidden;
+}
+.auth-top{
+    width: 100%;
+    height: 138px;
+    position: relative;
+}
+.user_infoBox{
+    position: relative;
+    left: 13%;
+    top: 40px;
+    width: 395px;
+    height: 179px;
+    padding: 10px;
+    padding-top: 33px;
+    padding-left: 60px;
+    border-radius: 15px;
+    background-color: azure;
+    box-shadow: 3px 3px 4px rgb(53, 51, 51);
+}
+.user_info{
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    width:auto;
+    min-width: 100%;  
+}
+.avatarBox{
+    position: absolute;
+    left: 12%;
+    top: 15%;
+    width: 110px;
+    height: 110px;
+    border-radius: 60px;
+}
+.auth-avatar{
+    width: 110px;
+    height: 110px;
+    border-radius: 60px;
+}
+.avatarShape{
+    width: 55px;
+    height: 55px;
+    border-radius:50px ;
+}
+.linkBox{
+    width: 96%;
+    height: 50px;
+    left: 10px;
+    top: 266px;
+    position: absolute;
+}
+.InfoLongBox{
+    width: 90%;
+    height: 47px;
+    background-color: #cac9c9;
+    border-radius: 5px;
+    padding-left:10px;
+    margin-bottom: 10px;
+}
+.logout{
+    width: 50px;
+    height: 30px;
+    float: left;
+    font-size: 20px;
+    padding-left: 10px;
+    
+}
+.setInfo{
+    width: 100px;
+    font-size: 20px;
+    height: 30px;
+    padding-right: 10px;
+    float: right;
+}
+.setInfo:hover{
+    text-decoration: underline;
+}
+.logout:hover{
+    text-decoration: underline;
+}

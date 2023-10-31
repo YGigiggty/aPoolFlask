@@ -1,0 +1,38 @@
+/*页尾样式*/
+.tail{
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0;
+    line-height: 22px;
+    color: #999; 
+    height: 110px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(235, 210, 214);
+    overflow: hidden;
+    left: 0;
+    top: 2402px;
+}
+.insidebox{
+    width: 100%;
+    height:66px;
+    line-height: 66px;
+    padding: 0px;
+    margin: 0px;
+}
+.tail a:link{
+    color: #999;
+    text-decoration: none;
+}
+.tail a:hover{
+    color: red;
+    text-decoration: none;
+}
+.mod_span{
+    color: #ccc;
+    margin-top:0;
+    margin-bottom: 0;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+/*页尾样式*/

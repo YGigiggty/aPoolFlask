@@ -1,0 +1,129 @@
+.editBOx{
+    width: 100%;
+    height: 900px;
+}
+.EditspaceBox{
+    background-color: rgb(240, 230, 230);
+    transform: translate(-50%,-50%);
+    left:50%;
+    position: relative;
+    top: 43%;
+    border: solid 1px rgb(18, 91, 109);
+    width: 650px;
+    height: 700px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 6px rgb(66, 65, 65);
+    overflow: hidden;
+}
+.edit-top{
+    background-color: rgb(36, 197, 143);
+    width: 100%;
+    height: 138px;
+    position: relative;
+}
+.editTextBox{
+    width: 370px;
+    height: 100px;
+    position: relative;
+    left: 72px;
+    top: 20px;
+    padding-left: 130px;
+    font-size: 55px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    color: rgb(255, 255, 255);
+    text-shadow: -2px 3px 10px rgb(255, 255, 255);
+}
+.editForm{
+    width: 400px;
+    height: 450px;
+    position: relative;
+    left: 20%;
+    top: 35px;
+    background-color: rgb(235, 234, 232);
+    border-radius: 15px;
+    font-family: 微软雅黑;
+    box-shadow: 5px 5px 6px rgb(168, 168, 168);
+}
+.show_avatarInfo{
+    border: 1px solid black;
+    width: 388px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+}
+.show_avatarInfo ol {
+    list-style: none;
+}
+.show_avatarInfo img{
+    width: 100px;
+    height: 102px;
+    float: right;
+}
+.input-item{
+    display: block;
+    width:70%;
+    border: 0px;
+    padding: 10px;
+    border-radius: 15px;
+    border-bottom: 1px solid rgb(128,125,125);
+    font-size: 15px;
+    outline: none;
+    margin-top:15px;
+    margin-left: 40px;
+    /* float: left; */
+}
+.msg{
+    margin-left: 10px;
+    width:80px;
+}
+.subtn{
+    text-align: center;
+    padding: 10px;
+    width: 70%;
+    margin-top:33px ;
+    background-image: linear-gradient(to right,#91d835,rgb(36, 197, 143));
+    color:#fff;
+    border-radius: 15px;
+    margin-left: 50px;
+    transition: border-radius 0.5s;
+}
+.subtn:hover{
+    border-radius: 0;
+}
+.back{
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    left: 20%;
+    border-radius: 20px;
+    font-size: 14px;
+    padding-left:10px ;
+}
+.back a{
+    color: #5e9615;
+}
+.back a:hover{
+    text-decoration: underline;
+    color: aqua;
+}
+.error_msg{
+    width: 100px;
+    height: 24px;
+    color: red;
+    font-size: 15px;
+    position: absolute;
+    left:80px;
+    top: 158px;
+}
+.phone_error{
+    width: 130px;
+    height: 24px;
+    color: red;
+    font-size: 15px;
+    position: absolute;
+    left:80px;
+    top: 236px;
+}
+

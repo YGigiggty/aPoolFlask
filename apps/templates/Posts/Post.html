@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../static/CSS/article/AuthPost.css">
+    <title>文章:{{post.title}}</title>
+</head>
+<body>
+<div class="AuthInfoBox">
+  <div class="auth">
+    <div class="auth_name">
+      <a href={{url_for("postes.Space",id=Auth.id)}}>{{Auth.user_name}}</a>
+    </div>
+    <div class="auth_avater">
+        {% if Auth.avatar_bytea%}
+            <img src={{url_for("postes.AuthHead",id=Auth.id)}}>
+        {% else %}
+            <img src="../../static/IMG/WENHAO.jpg">
+        {% endif %}
+    </div>
+    <div class="Toindex">
+      <a href={{url_for("user.first_index")}}>
+        <img src="../../static/IMG/ToHome.png">
+      </a>
+    </div>
+    </div>
+  </div>
+</div>
+  <div class="ThePost">
+    <div class="BodyCore">
+        <p class="ArtTitle">
+          {{post.title}}
+        </p>
+        <div class="Read">
+          <p>
+              {{post.body}}
+          </p>
+        </div>
+    </div>
+  </div>
+  
+</body>
+</html>

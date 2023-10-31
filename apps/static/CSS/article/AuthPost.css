@@ -1,0 +1,107 @@
+.ThePost{
+    width: 910px;
+    height: auto;
+    min-height: 800px;
+    background-color: rgb(231, 227, 227);
+    position: relative;
+    border-radius: 15px;
+    padding: 40px 0 0 70px ;
+}
+body{
+    padding: 80px 0 0 130px;
+    height: 100%;
+}
+.AuthInfoBox{
+    background-color: rgb(139, 139, 153);
+    width: 340px;
+    height: 350px;
+    position: absolute;
+    left: 1155px;
+    border-radius: 15px;
+    padding: 10px;
+}
+.auth{
+    background-color: white;
+    width: 78%;
+    height: 76%;
+    border-radius: 25px;
+    padding: 45px 35px 35px 35px;
+}
+.auth_avater{
+    border: 0.5px solid rgb(97, 93, 93);
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+.auth_avater img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+.auth_name{
+    /* background-color: green; */
+    min-width: 140px;
+    max-width: 209px;
+    width: auto;
+    height: 35px;
+    position: absolute;
+    left: 133px;
+    top: 70px;
+    text-align: left;
+    font-size: 20px;
+}
+.auth_name a{
+    padding: 0;
+    margin: 0;
+    color: #144197;
+    text-decoration: none;
+} 
+.Toindex{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    top: 84%;
+    left: 82%;
+    border-radius: 25px;
+}
+.Toindex a{
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+.Toindex img{
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+}
+.Toindex img:hover{
+    border-radius: 0px;
+    border: 1px solid rgb(201, 248, 162);
+}
+.BodyCore{
+    width: 90%;
+    height: auto;
+    min-height: 720px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    border-radius: 20px;
+}
+.ArtTitle{
+    font-size: 40px;
+    text-align: center;
+}
+.ArtBody{
+    font-size: 15px;
+}
+.Read{
+    width: 100%;
+    height: auto;
+    min-height: 560px;
+}
+.Read p{
+    word-wrap: break-word;
+    font-size: 18px;
+}

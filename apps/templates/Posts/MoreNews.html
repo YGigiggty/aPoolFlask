@@ -1,0 +1,24 @@
+{% extends "navigation.html" %}
+{% block title %}更多新闻{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="../../static/CSS/article/post.css">
+    <link rel="shortcut icon" href="../../static/IMG/chicken.png">
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+    <div class="background">
+        <div class="News">
+            <div class="recommend">
+                {% for p in posts%}
+                <div class="RecommendPost">
+                    <a href={{url_for("postes.AuthPost",id=p.id)}}>文章:{{ p.title}}</a>
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

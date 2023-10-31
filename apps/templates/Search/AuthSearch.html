@@ -1,0 +1,24 @@
+{% extends "Search/SearchResult.html" %}
+
+{% block head %}
+    {{ super() }}
+    <title>{{ Keyword }}-搜索</title>
+    <link rel="stylesheet" href="../../static/CSS/Search/PostResult.css">
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+    <div class="result">
+        <div class="PostShow">
+            <a>文章</a>
+        </div>
+        <div class="AuthShow">
+            <a>用户</a>
+        </div>
+        <div class="ThePostBox">
+            <div class="InsideBox">
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

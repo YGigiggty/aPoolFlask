@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../static/IMG/chicken.png">
+     <link rel="stylesheet" href="../static/CSS/navbar.css">
+     <link rel="stylesheet" href="../static/CSS/editProfiel.css">
+    <link rel="stylesheet" href="../static/CSS/main.css">
+    <title>修改用户资料</title>
+</head>
+<body>
+       <div class="slice_inner">
+        <div class="flex_div">
+            <div class="block_logo">
+                <a href="../index/index.html">
+                    <img src="../static/IMG/CSGO-Logo.png" class="logo_img">
+                </a>
+            </div>
+            <div class="search_div">
+                <form>
+                    <input type="text" placeholder="搜索你感兴趣的事情" class="search_form">
+                    <button class="search_button button_change">搜索</button>
+                </form>
+            </div>
+            <div class="head_sculptureBox">
+                {% if current_user. avatar_bytea %}
+                     <img class="avatarShape" src={{url_for("user.returnIMG")}}>
+                {% else %}
+                    <img class="avatarShape" src="../static/IMG/WENHAO.jpg">
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <!-- logo，搜索，登录 -->
+
+     <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="navbar_inslice">
+            <div class="guide">
+                <nav class="header_nav">
+                    <ul class="header_nav_ul">
+                        <li class="header_nav_li">
+                            <a class="Space_invaginationa" id="changeTheA1" href={{url_for("user.first_index")}}>主页</a>
+                        </li>
+                        <li class="header_nav_li">
+                            <a class="normala" id="changeTheA2" href="../past events/miserable.html">历史发展</a>
+                            <ul class="dropdown-contentFirst">
+                                <li class="dropdownLi">
+                                    <a href="../past events/candar.html">日历</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header_nav_li">
+                            <a class="normala" id="changeTheA3" href="../about us/usInformation.html">关于我们</a>
+                            <ul class="dropdown-contentSecond">
+                                <li class="dropdownLi"><a href="../users/feedback.html">反馈</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏 -->
+
+    <div class="editBOx">
+        <div class="EditspaceBox">
+            <div class="edit-top">
+                <div class="editTextBox">
+                    <p>资料修改</p>
+                </div>
+            </div>
+            <form method="post" class="editForm" action={{url_for("user.userEdit")}} enctype="multipart/form-data">
+                {{form.csrf_token()}}
+                <h3>修改头像：</h3>
+                {{form.avatarSubmit(accept=".jpg, .jpeg, .png")}}
+                <div class="show_avatarInfo">
+                    <p>未找到最近上传的文件</p>
+                </div>
+                <p class="msg">用户名：</p>
+                <div class="error_msg">
+                    <p id="username_error">
+                        {% for message in get_flashed_messages() %}
+                            {{message}}
+                        {% endfor %}
+                    </p>
+                </div>
+                {{form.username(class="input-item",value=user.user_name)}}
+                <p class="msg">联系号码：</p>
+                <div class="phone_error">
+                    <p id="phone_error"></p>
+                </div>
+                {{form.userphone(class="input-item",value=user.user_phone )}}
+                {{form.datasub(class="subtn")}}
+            </form>
+            <div class="back">
+                <a href={{url_for("user.user_space",username=current_user.user_name)}}>个人空间</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../static/JS/editProfileRule.js"></script>
+</body>
+</html>

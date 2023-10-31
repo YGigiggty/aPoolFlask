@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user.user_name}}的空间</title>
+    <link rel="stylesheet" href="../static/CSS/navbar.css">
+    <link rel="stylesheet" href="../static/CSS/spaceMain.css">
+    <link rel="shortcut icon" href="../static/IMG/chicken.png">
+</head>
+<body>
+    <div class="slice_inner">
+        <div class="flex_div">
+            <div class="block_logo">
+                <a href="../index/index.html">
+                    <img src="../static/IMG/CSGO-Logo.png" class="logo_img">
+                </a>
+            </div>
+            <div class="search_div">
+                <form>
+                    <input type="text" placeholder="搜索你感兴趣的事情" class="search_form">
+                     <button class="search_button button_change">搜索</button>
+                </form>
+            </div>
+            <div class="head_sculptureBox">
+                {% if current_user. avatar_bytea %}
+                     <img class="avatarShape" src={{url_for("user.returnIMG")}}>
+                {% else %}
+                    <img class="avatarShape" src="../static/IMG/WENHAO.jpg">
+                {% endif %}
+            </div>
+            <div class="contribute">
+                <a href={{url_for("postes.editPosts")}}>投稿</a>
+            </div>
+        </div>
+        
+    </div>
+    <!-- logo，搜索，登录 -->
+
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="navbar_inslice">
+            <div class="guide">
+                <nav class="header_nav">
+                    <ul class="header_nav_ul">
+                        <li class="header_nav_li">
+                            <a class="Space_invaginationa" id="changeTheA1" href={{url_for("user.first_index")}}>主页</a>
+                        </li>
+                        <li class="header_nav_li">
+                            <a class="normala" id="changeTheA2" href="../past events/miserable.html">历史发展</a>
+                            <ul class="dropdown-contentFirst">
+                                <li class="dropdownLi">
+                                    <a href="../past events/Exhibition.html">名人堂</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header_nav_li">
+                            <a class="normala" id="changeTheA3" href="../about us/usInformation.html">关于我们</a>
+                            <ul class="dropdown-contentSecond">
+                                <li class="dropdownLi"><a href="../users/feedback.html">反馈</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏 -->
+    <div class="next">
+        <div class="spaceBox">
+            <div class="auth-top">
+                <div class="avatarBox">
+                    {% if current_user.avatar_bytea %}
+                        <img class="auth-avatar" src={{url_for("user.returnIMG")}}>
+                    {% else %}
+                    <img class="auth-avatar" src="../static/IMG/WENHAO.jpg">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="user_infoBox">
+                <div class="InfoLongBox"><p class="user_info">用户名：{{user.user_name}}</p></div>
+                <div class="InfoLongBox"><p class="user_info">邮箱：{{user.user_email}}</p></div>
+                <div class="InfoLongBox"><p class="user_info">联系电话：{{user.user_phone}}</p></div>
+                <div class="linkBox">
+                    <div class="logout"><a href={{url_for("user.user_out")}}>登出</a></div>
+                    <div class="setInfo"><a href={{url_for("user.userEdit")}}>修改资料</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

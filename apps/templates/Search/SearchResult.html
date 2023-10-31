@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+        }
+        .found{
+            background-color: #fff;
+            width: 100%;
+            height: 190px;
+            position: relative;
+            border-bottom:1px solid black ;
+        }
+        .searchBox{
+            width: 550px;
+            height: 80px;
+            position: relative;
+            left: 174px;
+            top: 47px;
+        }
+        .indexIMG{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 81px;
+            top: 47px;
+        }
+        .indexIMG a{
+            display: block;
+            width: 80px;
+            height: 80px;
+        }
+        .indexIMG img{
+            width: 80px;
+            height: 80px;
+        }
+        .userInfo{
+            width: 300px;
+            height: 250px;
+            position: absolute;
+            left: 1620px;
+            top: 0;
+        }
+        .login{
+            background-color: white;
+            width: 100px;
+            height: 40px;
+            position: relative;
+            left: 170px;
+            top: 50px;
+        }
+        .UaserBox{
+            background-color: white;
+            width: 250px;
+            height: 65px;
+            border-radius: 25px;
+            position: relative;
+            left: 20px;
+            top: 20px;
+            overflow: hidden;
+        }
+        .UserAva{
+            width: 65px;
+            height: 65px;
+            border-radius: 25px;
+            border: 0.5px solid rgb(119, 119, 119);
+        }
+        .UaserBox a{
+                margin: 0;
+                width: 150px;
+                font-size: 20px;
+                text-decoration: none;
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 90px;
+                word-wrap: break-word;
+        }
+        .UaserBox a:hover{
+            text-decoration: underline;
+            color: rgb(201, 153, 22);
+        }
+        .Tologin{
+            display: block;
+            position: relative;
+            width: 95px;
+            height: 45px;
+            left: 170px;
+            top: 50px;
+            background-color: rgb(27, 75, 207);
+            font-size: 25px;
+            color: white;
+            text-align: center;
+            line-height: 1.3em;
+            border-radius: 10px;
+            outline: none;
+            padding-top: 5px;
+            border-width: 1px;
+            text-decoration: none;
+        }
+        .Tologin:hover{
+            box-shadow: 0 5px 13px 0 rgb(0,0,0,0.3);
+        }
+        .UserAva img{
+            width: 65px;
+            height: 65px;
+            border-radius: 25px;
+        }
+        .SearchInput{
+            width: 87%;
+            height: 78px;
+            padding: 0;
+            border: 1px solid black;
+            border-radius: 22px;
+        }
+        .searchButton{
+            height: 59px;
+            width: 63px;
+            padding: 0;
+            position: relative;
+            top: -6px;
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <div class="found">
+        <div class="indexIMG">
+            <a href={{url_for("user.first_index")}}>
+                <img src="../../static/IMG/chicken.png">
+            </a>
+        </div>
+        <div class="searchBox">
+            <form>
+                <input class="SearchInput">
+                <button class="searchButton">搜索</button>
+            </form>
+        </div>
+        <div class="userInfo">
+            {% if current_user.is_authenticated %}
+                <div class="UaserBox">
+                    {% if current_user.avatar_bytea %}
+                    <div class="UserAva">
+                        <img src={{url_for("user.returnIMG")}}>
+                    </div>
+                    {% else%}
+                    <div class="UserAva">
+                        <img src="../../static/IMG/WENHAO.jpg">
+                    </div>
+                    {% endif %}
+                    <a href={{url_for("user.user_space",username=current_user.user_name)}}>{{current_user.user_name}}</a>
+                </div>
+            {% else %}
+                <a class="Tologin" href={{url_for("user.user_login")}}>login</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

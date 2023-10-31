@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ Auth.user_name }}的空间</title>
+    <style>
+        .outside{
+            width: 700px;
+            height: 700px;
+            background-color: rgb(236, 233, 229);
+            border: 2px outset rgb(117, 82, 82);
+            position: relative;
+            left: 30%;
+            border-radius: 15px;
+            margin-top: 100px;
+        }
+        .inside{
+            width: 657px;
+            height: 657px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: rgb(161, 202, 202);
+            border: 3px ridge rgb(187, 170, 170);
+        }
+        .Auth{
+            background-color: white;
+            width: 95%;
+            height: 87px;
+            padding-left: 20px;
+            padding-top:13px ;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+        .AuthPosts{
+            background-color: white;
+            width: 70%;
+            margin-left: 60px;
+            height: 70%;
+            border-radius: 15px;
+            padding-left: 36px;
+            padding-top: 18px;
+        }
+        .AuthAvater{
+            width: 80px;
+            height: 75px;
+            border-radius: 12px;
+        }
+        .AuthAvater img{
+            width: 80px;
+            height: 75px;
+            border-radius: 12px;
+        }
+        .AuthName{
+            width: auto;
+            min-width: 100px;
+            height: 35px;
+            position: absolute;
+            left: 19%;
+        }
+        .AuthName p{
+            font-size: 20px;
+            margin: 0;
+        }
+        .toolBox{
+            /* background-color: blue; */
+            width: 120px;
+            height: 33px;
+            position: absolute;
+            left: 19%;
+            top: 10%;
+        }
+        .PostNumber{
+            position: absolute;
+            left: 37%;
+            font-size: 18px;
+            top: 8%;
+            font-weight: bold;
+        }
+        .ToIndex{
+            width: 35px;
+            height: 100%;
+        }
+        .ToIndex img{
+            width: 35px;
+            height: 100%;
+            border-radius: 20px;
+        }
+        .ToIndex a{
+            width: 35px;
+            display: block;
+            height: 100%;
+            border-radius: 20px;
+        }
+        .post{
+            width: 89%;
+            height: 78px;
+            background-color: rgb(111, 192, 226);
+            border: 1px ridge black;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            padding-left: 10px;
+            padding-top: 8px;
+        }
+        .navigate{
+            /* background-color: aqua; */
+            width: 90%;
+            padding: 0;
+            height: 50px;
+        }
+        .navigate li{
+            width: 48.5px;
+            height: 56%;
+            border: 1px  solid black;
+            float: left;
+            margin-right: 1px;
+            list-style: none;
+            border-radius: 5px;
+        }
+        .disable{
+            display: none;
+        }
+        .navigate a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            text-align: center;
+            color: rgb(17, 172, 233);
+        }
+        .active{
+            background-color: rgb(43, 43, 43);
+        }
+        .PostCoer{
+            width: 98%;
+            height: 90%;
+            border-radius: 10px;
+            position: relative;
+            border: 1px outset rgb(231, 172, 11);
+            background-color: aliceblue;
+        }
+        .PostCoer a{
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+            top: 2px;
+            left: 5px;
+            text-decoration: none;
+            color: black;
+        }
+        .PostCoer a:hover{
+            color: rgb(64, 151, 209);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="outside">
+        <div class="inside">
+            <div class="Auth">
+                <p class="PostNumber">
+                    已发布
+                    {% if sum%}
+                        {{ sum }}
+                    {% else%}
+                        0
+                    {% endif %}篇文章
+                </p>
+                <div class="toolBox">
+                    <div class="ToIndex">
+                        <a href={{url_for("user.first_index")}}> <img src="../../static/IMG/ToHome.png"></a>
+                    </div>
+                </div>
+                <div class="AuthName"><p>{{Auth.user_name}}</p></div>
+                <div class="AuthAvater">
+                    {% if Auth.avatar_bytea%}
+                        <img src={{url_for("postes.AuthHead",id=Auth.id)}}>
+                    {% else %}
+                        <img src="../../static/IMG/WENHAO.jpg">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="AuthPosts">
+                {% for p in post %}
+                <div class="post">
+                    <div class="PostCoer">
+                        <a href={{url_for("postes.AuthPost",id=p.id)}}>文章名:{{p.title}}</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <ul class="navigate">
+                    <li >
+                        <a
+                        href="{% if not pagination.has_prev %}
+                                #
+                                {% else %}
+                                    {{url_for("postes.Space",page=pagination.page-1,id=Auth.id)}}
+                            {% endif %}">&laquo;</a>
+                    </li>
+                    {% for p in pagination.iter_pages(
+                        left_edge=0,
+                        left_current=0,
+                        right_current=0,
+                        right_edge=0
+                    ) %}
+                        {% if p %}
+                            {% if p ==pagination.page %}
+                                <li class="active"><a href={{url_for("postes.Space",page=p,id=Auth.id)}}>{{p}}</a></li>
+                            {% else %}
+                                <li><a href={{url_for("postes.Space",page=p,id=Auth.id)}}>{{p}}</a></li>
+                            {% endif %}
+                        {% else %}
+                            <li><a>&hellip;</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <li>
+                        <a href="
+                        {% if not pagination.has_next %}
+                            #
+                        {%else%}
+                                {{url_for("postes.Space",page=pagination.page+1,id=Auth.id)}}
+                        {% endif %}
+                        "
+                        >&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

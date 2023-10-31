@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/CSS/main.css">
+    <link rel="stylesheet" href="../static/CSS/navbar.css">
+    <link rel="stylesheet" href="../static/CSS/tail.css">
+    <link rel="shortcut icon" href="../../static/IMG/chicken.png">
+    {% endblock %}
+</head>
+
+<body>
+        {% block body %}
+        <!-- logo，搜索，登录 -->
+        <div class="slice_inner">
+            <div class="flex_div">
+                <div class="block_logo">
+                    <a href="../index/index.html">
+                        <img src="../static/IMG/CSGO-Logo.png" class="logo_img">
+                    </a>
+                </div>
+                <div class="search_div">
+                    <form>
+                        <input type="text" placeholder="搜索你感兴趣的事情" class="search_form">
+                        <button class="search_button button_change">搜索</button>
+                    </form>
+                </div>
+                {% if current_user.is_authenticated %}
+                    <div class="head_sculptureBox">
+                        <a class="toSpace_A" href={{url_for("user.user_space",username=current_user.user_name)}}>
+                            {% if current_user.avatar_bytea %}
+                            <img class="avatarShape" src={{url_for("user.returnIMG")}}>
+                            {% else %}
+                            <img class="avatarShape" src="../static/IMG/WENHAO.jpg">
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="contribute">
+                        <a href={{url_for("postes.editPosts")}}>投稿</a>
+                    </div>
+                {% else %}
+                <div class="block_button">
+                    <button class="login_button button_change" id="loginButton">
+                        <a class="login_link" href={{url_for("user.user_login")}}>加入我们</a>
+                    </button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <!-- logo，搜索，登录 -->
+    
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <div class="navbar_inslice">
+                <div class="guide">
+                    <nav class="header_nav">
+                        <ul class="header_nav_ul">
+                            <li class="header_nav_li">
+                                <a class="Invaginationa" id="changeTheA1" href={{url_for("user.first_index")}}>主页</a>
+                            </li>
+                            <li class="header_nav_li">
+                                <a class="normala" id="changeTheA2" href="../past events/miserable.html">历史发展</a>
+                                <ul class="dropdown-contentFirst">
+                                    <li class="dropdownLi">
+                                        <a href="../past events/Exhibition.html">名人堂</a>
+                                    </li>
+                                    {% if current_user.posts %}
+                                    <li  class="dropdownLi">
+                                            <a href={{url_for("postes.MyList")}}>我的发布</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                            <li class="header_nav_li">
+                                <a class="normala" id="changeTheA3" href="../about us/usInformation.html">关于我们</a>
+                                <ul class="dropdown-contentSecond">
+                                    <li class="dropdownLi"><a href="../users/feedback.html">反馈</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        {% endblock %}
+</body>
+</html>

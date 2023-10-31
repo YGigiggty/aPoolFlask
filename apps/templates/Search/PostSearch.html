@@ -1,0 +1,27 @@
+{% extends "Search/SearchResult.html" %}
+
+{% block head %}
+    {{ super() }}
+    <title>{{ n }}-搜索</title>
+    <link rel="stylesheet" href="../../static/CSS/Search/AuthResult.css">
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+    <div class="result">
+        <div class="PostShow">
+            <a>文章</a>
+        </div>
+        <div class="AuthShow">
+            <a>用户</a>
+        </div>
+        <div class="ThePostBox">
+            <div class="InsideBox">
+                {% for i in posts %}
+                    <p>{{i.title}}</p>
+                {% endfor %}
+            </div>
+           
+        </div>
+    </div>
+{% endblock %}

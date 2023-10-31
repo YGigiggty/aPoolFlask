@@ -1,0 +1,6 @@
+亲爱的用户：
+    您好！
+    请点击以下链接，以便重设您账户密码。
+    {{url_for("user.reset_U_Password",token =token,_external=True)}}
+    感谢您的到来。
+                                            TEstsenders

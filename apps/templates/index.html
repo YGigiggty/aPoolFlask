@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    <link rel="stylesheet" href="../static/CSS/main.css">
+    <link rel="stylesheet" href="../static/CSS/navbar.css">
+    <link rel="stylesheet" href="../static/CSS/tail.css">
+    <link rel="shortcut icon" href="./IMG/iconLogo.png">
+</head>
+<body>
+    <!-- logo，搜索，登录 -->
+    <div class="slice_inner">
+        <div class="flex_div">
+            <div class="block_logo">
+                <a href="../index/index.html">
+                    <img src="../static/IMG/CSGO-Logo.png" class="logo_img">
+                </a>
+            </div>
+            <div class="search_div">
+                <form method="post" action={{url_for("Search.PostResult")}}>
+                    {{ form.csrf_token() }}
+                    {{ form.goal(class="search_form",placeholder="搜索你感兴趣的事情")}}
+                    {{form.ToSearch(class="search_button button_change")}}
+                </form>
+            </div>
+            {% if current_user.is_authenticated %}
+            <div class="head_sculptureBox">
+                <a class="toSpace_A" href={{url_for("user.user_space",username=current_user.user_name)}}>
+                    {% if current_user.avatar_bytea %}
+                        <img class="avatarShape" src={{url_for("user.returnIMG")}}>
+                        {% else %}
+                            <img class="avatarShape" src="../static/IMG/WENHAO.jpg">
+                        {% endif %}
+                </a>
+            </div>
+            <div class="contribute">
+                <a href={{url_for("postes.editPosts")}}>投稿</a>
+            </div>
+            {% else %}
+            <div class="block_button">
+                <button class="login_button button_change" id="loginButton">
+                    <a class="login_link" href={{url_for("user.user_login")}}>加入我们</a>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <!-- logo，搜索，登录 -->
+
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="navbar_inslice">
+            <div class="guide">
+                <nav class="header_nav">
+                    <ul class="header_nav_ul">
+                        <li class="header_nav_li">
+                            <a class="Invaginationa" id="changeTheA1" href="../index/index.html">主页</a>
+                        </li>
+                        <li class="header_nav_li">
+                            <a class="normala" id="changeTheA2" href="../past events/miserable.html">历史发展</a>
+                            <ul class="dropdown-contentFirst">
+                                <li class="dropdownLi">
+                                    <a href="../past events/Exhibition.html">名人堂</a>
+                                </li>
+                                {% if current_user.posts %}
+                                    <li  class="dropdownLi">
+                                            <a href={{url_for("postes.MyList")}}>我的发布</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                        <li class="header_nav_li">
+                            <a class="normala" id="changeTheA3" href="../about us/usInformation.html">关于我们</a>
+                            <ul class="dropdown-contentSecond">
+                                <li class="dropdownLi"><a href="../users/feedback.html">反馈</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- 导航栏 -->
+
+    <!-- 轮播图 -->
+    <div class="scrollBar" id="scrollBar">
+        <ul class="sequnenceLI">
+            <li class="animalLI"><img src="../static/IMG/0.jpg" class="ANimalimg" id="ANimalimg">
+            </li>
+        </ul>
+        <ul id="number" class="number">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <!-- 轮播图 -->
+
+    <!-- 宣传栏-->
+    <div class="propagendaBox">
+        <div class="propagenda_lineF">
+            <span>反恐精英迎来新时代</span>
+        </div>
+        <div class="propagenda_lineS">
+            <h2>CS2将采用全新起源二游戏引擎。Counter-Strike2采用新引擎展现了Counter-Strike历史上最大的技术飞跃，今后几年的新功能和更新将得以保证。
+                在2023年夏，CS：GO将平稳过渡和免费升级至Counter-Strike2。请擦好枪炮，磨练技术为游戏更新做好准备！
+            </h2>
+        </div>
+        <div class="propagenda_lineT">
+            <h2>官方账号：</h2>
+            <a style="width:55px;height:40px;
+             display:block; position:absolute;left:160px;" href="https://twitter.com/CounterStrike">
+                <img src="./static/IMG/Twitter.png" style="width:55px;height:40px">
+            </a>
+        </div>
+    </div>  
+    <div class="longlist">
+        <div class="animalkown">
+            <ul class="other">
+                <h2>更多精彩内容：</h2>
+            </ul>
+            <ul class="guideUL">
+                <li class="guideLI">
+                    <a class="animala" title="首页" href="../index/index.html">
+                        <img class="guideIMG" src="./static/IMG/newHLTV.jpg" title="Major赛事">
+                    </a>
+                </li>
+                <li class="guideLI">
+                    <a class="animala" title="悲惨过往" href="../past events/miserable.html">
+                        <img class="guideIMG" src="./static/IMG/top.jpg" title="Top选手">
+                    </a>
+                </li>
+                <li class="guideLI">
+                    <a class="animala" title="我们的工作" href="../about us/usInformation.html">
+                        <img class="guideIMG" src="./static/IMG/player.jpg" title="我们的工作" alt="自我介绍">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 宣传栏-->
+
+    <!-- 要闻-->
+    <div class="lastbox">
+        <div class="newsbox">
+            <div class="morenew">
+                <h2>
+                    <a href={{url_for("postes.post_index")}}>
+                        更多新闻
+                    </a>
+                </h2>
+            </div>
+            <div class="Firstnew">
+                <div class="FirstnewimgBOX"> <img src="./static/IMG/newBox.png"></div>
+                <div class="Firstnew_in_box">
+                    <h3><a href="https://www.bilibili.com/read/cv21739017?spm_id_from=333.999.0.0">全新“变革”武器箱、“间谍”印花胶囊、音乐盒上线！</a></h3>
+                    <div class="space"></div>
+                    <p style="color:#2a367f;">在北京时间2023年2月10日上午九点CSGO发布了“变革”武器箱，包括来自社区艺术家创作的17款枪械皮肤，以及同命悬一线武器箱的手套作为罕见特殊物品。从此CSGO常规掉落武器箱加入变革武器箱，原有的命悬一线武器箱将被变革武器箱替换。
+                        同一时间同武器箱上架的还有全新音乐盒和全新印花胶囊。
+                    </p>
+                </div>    
+            </div>
+            <div class="ospace"></div>
+            <div class="Firstnew">
+                <div class="FirstnewimgBOX">
+                    <img src="../static/IMG/CSGO-Logo.png">
+                </div>
+                <div class="Firstnew_in_box">
+                    <h3><a href="https://twitter.com/i/status/1638580074126659584">V社发布CS全新宣传片</a></h3>
+                    <div class="space"></div>
+                    <p style="color:#2a367f;">北京时间3月23日凌晨V社在社交平台Twitter发布三个CS全新宣传片，宣传片展示了在起源二引擎下游戏中烟雾弹的效果以及公布了CS2服务器采用全新延迟技术、对原有CS：GO地图的处理。</p>
+                </div>
+            </div>
+            <div class="ospace"></div>
+            <div class="Firstnew">
+                <div class="FirstnewimgBOX">
+                    <img src="../static/IMG/NewSkin.jpg">
+                </div>
+                <div class="Firstnew_in_box">
+                    <h3><a>CS:GO 全新地图收藏品</a></h3>
+                    <div class="space"></div>
+                    <p style="color:#2a367f;">在北京时间2023年4月25日V社旗下知名游戏CS：GO更新全新地图收藏品，其中包含19款全新枪械皮肤。本次地图收藏品上架至游戏商城，该方式为V社首次尝试在游戏商城上架收藏品包。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 要闻-->
+
+    <!-- 页尾-->
+    <div class="tail">
+        <div class="insidebox">
+            <p>
+                <a href="#" target="_blank">制作者：杨致远</a>
+                <span class="mod_span">|</span>
+
+                <a href="#" target="_blank">班级：计科本201</a>
+                <span class="mod_span">|</span>
+
+                <a href="#" target="_blank">平台：FireFox</a>
+            </p> 
+        </div>
+       
+    </div>
+    <!-- 页尾-->
+    <script type="text/javascript" src="../static/JS/run.js"></script>
+</body>
+</html>

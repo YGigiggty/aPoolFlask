@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/IMG/chicken.png">
+    <link rel="stylesheet" href="../static/CSS/warnning.css">
+    <title>注册</title>
+    <style>
+         *{
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+        }
+        .continer{
+            height: 100%;
+            background-color:rgb(231, 227, 227);
+        }
+        .register-wrapper{
+            background-color: #fff;
+            width: 600px;
+            height: 588px;
+            border-radius: 15px;
+            padding : 0 ;
+            position: relative;
+            left:50%;
+            top:45%;
+            transform: translate(-50%,-50%);
+            overflow: hidden;
+        }
+        .auth-top{
+            background-color: #2a367e;
+            width: 100%;
+            height: 138px;
+            position: relative;
+        }
+        .Imgbox{
+            border-radius: 50px;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 42%;
+            top: 10px;
+            overflow: hidden;
+        }
+        .logo{
+            border-radius: 50px;
+            width: 100px;
+            height: 100px;
+        }
+        .link{
+            color: white;
+            cursor: pointer;
+            padding-left: 25px;
+            display: block;
+            padding-top: 5px;
+            font-size: 16px;
+            font-family: 微软雅黑;
+            text-decoration:none;
+        }
+        .index{
+            background-color: rgb(64, 151, 209);
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            top: 108px;
+            border-radius: 0 10px 0 0;
+        }
+        .Tologin{
+            background-color:rgb(64, 151, 209);
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            top: 108px;
+            border-radius: 10px 0 0 0;
+            left:520px ;
+        }
+        .main_input{
+            background-color: rgb(131, 178, 250);
+            width: 100%;
+            height: 450px;
+            top: 138px;
+            position: absolute;
+        }
+        .input-item{
+            display: block;
+            width:35%;
+            margin-bottom:25px;
+            border: 0px;
+            padding: 10px;
+            border-radius: 15px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline: none;
+            margin-left: 50px;
+            float: left;
+        }
+        .select-item{
+            display: block;
+            width:39%;
+            margin-bottom:45px;
+            border: 0px;
+            padding: 10px;
+            border-radius: 15px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline: none;
+            margin-left: 50px;
+            float: left;
+        }
+        .input-item::placeholder{
+            text-transform: uppercase;
+        }
+        .register_form{
+            margin-top: 40px;
+            height: 300px;
+        }
+        .btn{
+            text-align: center;
+            padding: 10px;
+            width: 70%;
+            margin-top:2px ;
+            background-image: linear-gradient(to right,#19e0e0,#2a367e);
+            color:#fff;
+            border-radius: 15px;
+            margin-left: 88px;
+            transition: border-radius 0.5s;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="continer">
+        <div class="register-wrapper">
+            <div class="auth-top">
+                <div class="Imgbox"><img src="../static/IMG/police.jpg" class="logo"></div>
+                <div class="index"><a class="link" href={{url_for("user.first_index")}}>首页</a></div>
+                <div class="Tologin"><a class="link" href={{url_for("user.user_login")}}>登录</a></div>
+            </div>
+            <div class="main_input">
+                <form class="register_form" method="post" action={{url_for('user.user_register')}}>
+                    {{form.csrf_token()}}
+                       <p class="name_warn" id="NameP">
+                           {% for message in get_flashed_messages() %}
+                                {{message}}
+                           {% endfor %}
+                       </p>
+                    {{form. UserName(class="input-item",placeholder='用户名')}}
+                    <p class="password_warn" id="PassWordP"></p>
+                    {{form.PassWord(class="input-item",placeholder="密码")}}
+                    <p class="UserEmail_warn" id="UserEmailP"></p>
+                    {{form.UserEmail(class="input-item",placeholder="邮箱")}}
+                    {{form.configPassword(class="input-item",placeholder="再次输入密码")}}
+                    <p class="phone_warn" id="UserPhoneP"></p>
+                    {{form.UserPhone(class="input-item",placeholder="电话号码")}}
+                    {{form.submit(class="btn")}}
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../static/JS/validator.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重置密码</title>
+    <link rel="shortcut icon" href="../../static/IMG/chicken.png">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            height: 100%;
+        }
+        .continer{
+            height: 100%;
+            background-color:rgb(231, 227, 227);
+        }
+        body{
+            height: 100%;
+        }
+        .change-wrapper{
+            background-color: #fff;
+            width: 460px;
+            height: 550px;
+            border-radius: 15px;
+            padding : 0 ;
+            position: relative;
+            left:50%;
+            top:45%;
+            transform: translate(-50%,-50%);
+            overflow: hidden;
+        }
+        .auth-bottom{
+            background-color: rgb(85, 174, 233);
+            width: 421px;
+            height: 417px;
+            position: absolute;
+            padding: 25px 0 0 39px;
+        }
+        .auth-top{
+            background-color: #99948f;
+            width: 100%;
+            height: 108px;
+            position: relative;
+        }
+        .btn{
+            text-align: center;
+            padding: 10px;
+            width: 55%;
+            margin-top:25px ;
+            background-image: linear-gradient(to right,rgb(192, 192, 189),#0aaee0);
+            color:#fff;
+            border-radius: 15px;
+            margin-left: 60px;
+            transition: border-radius 0.5s;
+        }
+        .input-item{
+            display: block;
+            width:55%;
+            margin-bottom:20px;
+            border: 0px;
+            padding: 10px;
+            border-radius: 15px;
+            border-bottom: 1px solid rgb(128,125,125);
+            font-size: 15px;
+            outline: none;
+            margin-left: 50px;
+        }
+        .change_form{
+            width: 400px;
+            padding-left: 62px;
+        }
+        .msg_label{
+            font-size: 20px;
+            font-family: 微软雅黑;
+            margin-left: 50px;
+        }
+        .warnning{
+            color: red;
+            font-weight: bold;
+            font-family: 微软雅黑;
+            text-align: center;
+        }
+        .boom{
+            display: none;
+        }
+        .Imgbox{
+            border-radius: 50px;
+            width: 85px;
+            height: 85px;
+            position: absolute;
+            left: 42%;
+            top: 10px;
+            overflow: hidden;
+            background-color: white;
+        }
+        .index{
+            background-color: rgb(194, 166, 39);
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            top: 78px;
+            border-radius: 0 10px 0 0;
+        }
+        .Tologin{
+            background-color:rgb(194, 166, 39);
+            width: 80px;
+            height: 30px;
+            position: absolute;
+            top: 78px;
+            border-radius: 10px 0 0 0;
+            left:380px ;
+        }
+        .tip{
+            font-size: 50px;
+            font-family: "宋体";
+            padding-top: 10px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: -2px 3px 10px rgb(70, 68, 68);
+        }
+    </style>
+</head>
+<body>
+    <div class="continer">
+        <div class="change-wrapper">
+            <div class="auth-top">
+                <p class="tip">重设密码</p>
+            </div>
+            <div class="auth-bottom">
+                <form method="post">
+                    {{ form.hidden_tag() }}
+                    <p id="Error" class="warnning"></p>
+                   {{form.NewPassword(class="input-item")}}
+                   {{form.configPWD(class="input-item")}}
+                   {{form.submit(class="boom")}}
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</body> 
+<script>
+    
+    let ConfigPwd =document.querySelector("#configPWD");
+    let DataPut =document.querySelector("#submit");
+    let Errors =document.querySelector("#Error");
+
+    ConfigPwd.addEventListener("blur",(ev)=>{
+        let NewPwd =document.querySelector("#NewPassword");
+        let PwdValue =NewPwd.value;
+        let config =ev.target.value;
+        if(!PwdValue){
+            Errors.innerText="密码不可为空";
+        }else{
+            if(PwdValue !==config){
+                Errors.innerText="密码不一致!";
+                 DataPut.classList.replace("btn","boom");
+            }else{
+                DataPut.classList.replace("boom","btn");
+            }
+        }
+    })
+    ConfigPwd.addEventListener("focus",(ev)=>{
+        if(Errors.innerText !=""){
+            ConfigPwd.value="";
+        }
+        Errors.innerText="";
+    })
+</script>
+</html>
